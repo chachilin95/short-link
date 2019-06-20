@@ -1,7 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export default class Signup extends React.Component {
     render() {
-        return <p>Signup Component here</p>
+        return (
+            <div>
+                <h1>Signup for Short Lnk</h1>
+
+                signup form goes here
+
+                <Link to="/">Already have an account?</Link>
+            </div>
+        );
     }
 }

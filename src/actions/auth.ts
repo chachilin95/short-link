@@ -1,6 +1,6 @@
-import { Action } from '../types/auth.types';
+import { Action, UID } from '../types/auth.types';
 
-export const login = (uid: string): Action => ({
+export const login = (uid: UID): Action => ({
     type: 'LOGIN',
     uid
 });

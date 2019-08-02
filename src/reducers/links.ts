@@ -2,7 +2,6 @@ import uuid from 'uuid';
 
 import { State, Action, Link } from '../types/links.types';
 
-
 const makeURL = (state: State): string => {    
     const urlLength = 6;
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -12,6 +11,7 @@ const makeURL = (state: State): string => {
     let isUnique = true;
 
     do {
+        isUnique = true;
 
         // generate url
         for (var i = 0; i < urlLength; i++) {
@@ -19,12 +19,12 @@ const makeURL = (state: State): string => {
         }
     
         // determine if url is unique
-        state.forEach((link) => {
-            if (link.url === result) {
+        for (var i = 0; i< state.length; i++) {
+            if (state[i].id === result) {
                 isUnique = false;
+                break;
             }
-        });
-
+        }
     } while (isUnique)
 
     return result;

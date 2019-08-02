@@ -1,17 +1,17 @@
-export type uid = string;
+export type UID = string;
 
-export type State = uid;
+export type State = UID;
 
 export type Action = 
     | {
         type: 'LOGIN'
-        uid: uid
+        uid: UID
     }
     | {
         type: 'LOGOUT'
     };
 
 export type IAuthContext = {
-    uid: string,
+    uid: UID,
     dispatch: React.Dispatch<Action>
 };

@@ -1,8 +1,10 @@
 export type UID = string;
 
-export type State = UID;
+export type State = {
+    uid: UID
+};
 
-export type Action = 
+export type Action =
     | {
         type: 'LOGIN'
         uid: UID

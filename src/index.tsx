@@ -5,12 +5,13 @@ import { StorageItems } from './types/app.types';
 import { state as initialState, reducers } from './store/configureStore';
 import { AppContextProvider } from './contexts/app';
 import { login } from './actions/auth';
+import { setLinks } from './actions/links';
 import AppRouter from './routers/AppRouter';
 
 const JSX = () => {
     const [state, dispatch] = useReducer(reducers, initialState);
 
-    // initialize state
+    // initialize state on startup
     useEffect(() => {
 
         const localUID = localStorage.getItem(StorageItems.UID);
@@ -20,7 +21,7 @@ const JSX = () => {
 
         const localLinks = localStorage.getItem(StorageItems.LINKS);
         if (localLinks) {
-            console.log(localLinks);
+            dispatch(setLinks(JSON.parse(localLinks)));
         }
 
     }, []);

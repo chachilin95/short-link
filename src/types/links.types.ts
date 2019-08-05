@@ -14,6 +14,10 @@ export type Action =
     | {
         type: 'DELETE_LINK',
         id: string
+    }
+    | {
+        type: 'SET_LINKS',
+        links: Link[]
     };
 
 export type ILinksContext = {

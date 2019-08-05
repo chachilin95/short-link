@@ -10,15 +10,16 @@ export const makeURL = (state: State): string => {
     let result = '';
     let isUnique = true;
     do {
+        var i = 0;
         isUnique = true;
 
         // generate url
-        for (var i = 0; i < urlLength; i++) {
+        for (i = 0; i < urlLength; i++) {
             result += characters.charAt(Math.floor(Math.random() * charactersLength));
         }
 
         // determine if url is unique
-        for (var i = 0; i < state.length; i++) {
+        for (i = 0; i < state.length; i++) {
             if (state[i].id === result) {
                 isUnique = false;
                 break;
@@ -32,7 +33,7 @@ export const makeURL = (state: State): string => {
 
 export default (
     state: State = [],
-    action: Action | any): State => {
+    action: Action): State => {
         switch (action.type) {
             case 'ADD_LINK':
                 const newLink: Link = {
@@ -42,7 +43,7 @@ export default (
                 }
                 return [...state, newLink];
             case 'DELETE_LINK':
-                return state.filter((link) => link.id != action.id);
+                return state.filter((link) => link.id !== action.id);
             default:
                 return state;
         }

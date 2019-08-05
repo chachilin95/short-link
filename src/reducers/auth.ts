@@ -6,7 +6,7 @@ const defaultState: State = {
 
 export default (
     state: State = defaultState, 
-    action: Action | any): State => {
+    action: Action): State => {
         switch (action.type) {
             case 'LOGIN':
                 return { uid: action.uid };
